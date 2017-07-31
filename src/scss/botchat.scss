@@ -49,6 +49,14 @@
         top: 0;
         z-index: 1;
     }
+	
+	.wc-header >div {
+		display: inline-block;
+	}
+	
+	.wc-header span {
+		color: #f2f2f2;
+	}
 
     .wc-time {
         color: $c_textLight;
@@ -92,7 +100,7 @@
                 max-width: 40%;
 
                 button {
-                    background-color: #fff;
+                    background-color: $c01;
                     color: $c_brand;
                     min-height: 32px;
                     overflow: hidden;
@@ -103,7 +111,7 @@
                 }
 
                 button:hover {
-                    background-color: #fff;
+                    background-color: $c01;
                     border-color: $c_brand;
                     color: $c_brand;
                 }
@@ -701,3 +709,393 @@
         background-color: $c_chrome;
     }
     
+	
+	.wc-chatview-panel {
+		width: 320px;
+		height: 400px;
+		position: absolute;
+		z-index: 99999;
+		left: inherit;
+		right: 10px;
+		bottom: 10px;
+		top: inherit;
+		background-color: $c01;
+	}
+	
+	.wc-chatview-panel.wc-chat_collapsed {
+		height: 89px;
+	}
+	
+	.wc-chatview-panel.wc-chat_collapsed .wc-message-pane {
+		height: 0;
+		visibility: hidden;
+		font-size: 0;
+	}
+	
+	.wc-chatview-panel.wc-chat_maximised {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	
+    .h2 {
+        font-family: Segoe UI;
+    }	
+		
+	.wc-message-groups {
+		border-left: 5px solid #dbdee1;
+		border-right: 5px solid #dbdee1;
+	}
+	
+	@media (max-height: 450px) {
+	
+		.wc-chatview-panel {
+			height: calc(100vh - 20px);
+		}
+		
+	}
+		
+	@media (max-width: 350px) {
+	
+		.wc-chatview-panel {
+			width: calc(100vw - 20px);
+		}
+		
+	}
+	
+	.wc-custom-chat-btn {
+	    width: 20px;
+		height: 16px;
+		background-color: #f2f2f2;
+		border-radius: 4px;
+		margin-right: 7px;
+		position: relative;
+		top: 2px;
+	}
+	
+	.wc-custom-chat-btn:after {
+		content: "";
+		display: block;
+		position: absolute;
+		width: 0;
+		height: 0;
+		right: 10px;
+		bottom: -4px;
+		border-left: 5px solid transparent;
+		border-right: 2px solid transparent;
+		border-top: 5px solid #f2f2f2;
+	}
+	
+	.wc-custom-chat-minimise-btn {
+		position: absolute;
+		right: 40px;
+		width: 16px;
+		height: calc(100% - 12px);
+		bottom: 0;
+		cursor: pointer;
+	}
+	
+	.wc-custom-chat-minimise-btn:before {
+		content: "";
+		position: absolute;
+		right: 0;
+		width: 100%;
+		height: 2px;
+		background: #f2f2f2;
+		top: 50%;
+		margin-top: -1px;
+	}
+	
+	.wc-custom-chat-minimise-btn.wc-custom-chat-minimise-btn-plus {
+		position: absolute;
+		right: 10px;
+		width: 16px;
+		height: 100%;
+		bottom: 0;
+		cursor: pointer;
+	}
+	
+		
+	.wc-custom-chat-minimise-btn.wc-custom-chat-minimise-btn-plus:before {
+		content: "";
+		position: absolute;
+		right: 0;
+		width: 100%;
+		height: 2px;
+		background: #f2f2f2;
+		top: 50%;
+		margin-top: -1px;
+	}
+	
+	.wc-custom-chat-minimise-btn.wc-custom-chat-minimise-btn-plus:after {
+		content: "";
+		position: absolute;
+		right: 50%;
+		width: 2px;
+		background: #f2f2f2;
+		top: 50%;
+		margin-right: -1px;
+		height: 16px;
+		margin-top: -8px;
+	}
+	
+	.wc-custom-chat-fullScreen-btn {
+		position: absolute;
+		right: 70px;
+		width: 20px;
+		height: 100%;
+		bottom: 0;
+		cursor: pointer;
+	}
+	
+	.wc-custom-chat-fullScreen-btn:before {
+		content: "";
+		position: absolute;
+		right: 0;
+		width: 12px;
+		height: 12px;
+		border: 2px solid #f2f2f2;
+		border-radius: 3px;
+		top: 50%;
+		margin-top: -8px;
+	}
+		
+	.wc-custom-chat-fullScreen-btn.wc-custom-chat-fullScreen-active-btn:after {
+		content: "";
+		position: absolute;
+		right: 3px;
+		width: 12px;
+		height: 12px;
+		border: 2px solid #f2f2f2;
+		border-radius: 3px;
+		top: 50%;
+		margin-top: -5px;
+	}
+	
+	.wc-custom-chat-close-btn {
+		position: absolute;
+		right: 10px;
+		width: 16px;
+		height: 100%;
+		bottom: 0;
+		cursor: pointer;
+	}
+		
+	.wc-custom-chat-close-btn:before {
+		content: "";
+		position: absolute;
+		right: 0;
+		width: 100%;
+		height: 2px;
+		background: #f2f2f2;
+		top: 50%;
+		margin-top: -1px;
+		transform: rotate(50deg);
+	}
+	
+	.wc-custom-chat-close-btn:after {
+		content: "";
+		position: absolute;
+		right: 50%;
+		width: 2px;
+		background: #f2f2f2;
+		top: 50%;
+		margin-right: -1px;
+		height: 16px;
+		margin-top: -8px;
+		transform: rotate(40deg);
+	}
+	
+	/* chat icons */
+		
+	@import url(https://fonts.googleapis.com/css?family=Noto+Sans&subset=latin,latin-ext);
+	$hover: all 0.2s ease-in;
+	$slide:all, 0.4s 0.1s, cubic-bezier(0.55,0,0.1,1);
+	$light-grey: #e0dfe1;
+	$grey: #9f9e9f;
+	$white: $c01;
+	$blue: #0190ec;
+
+	.icons-wrapper {
+	  display: inline-block;
+	  margin: 0 auto;
+	}
+
+	.icon {
+	  display: inline-block;
+	  vertical-align: top;
+	  margin: 10px;
+	  width: 64px;
+	  height: 68px;
+	  border-radius: 8px;
+	  position: relative;
+	  cursor: pointer;
+	  box-shadow: -1px 1px 5px -1px rgba(55,55,55,0.5);
+	  box-shadow: rgb(240, 240, 240) 1px 1px,
+		rgb(240, 240, 240) 2px 2px,
+		rgb(240, 240, 240) 3px 3px,
+		rgb(240, 240, 240) 4px 4px,
+		rgb(240, 240, 240) 5px 5px,
+		rgb(240, 240, 240) 6px 6px,
+		rgb(240, 240, 240) 7px 7px,
+		rgb(240, 240, 240) 8px 8px,
+		rgb(241, 241, 241) 9px 9px,
+		rgb(242, 242, 242) 10px 10px,
+		rgb(243, 243, 243) 11px 11px,
+		rgb(245, 245, 245) 12px 12px,
+		rgb(246, 246, 246) 13px 13px,
+		rgb(247, 247, 247) 14px 14px,
+		rgb(248, 248, 248) 15px 15px,
+		rgb(250, 250, 250) 16px 16px,
+		rgb(251, 251, 251) 17px 17px,
+		rgb(252, 252, 252) 18px 18px,
+		rgb(253, 253, 253) 19px 19px,
+		rgb(255, 255, 255) 20px 20px;
+	  
+	  &.blue {
+		background-color: $blue;
+		border-top-left-radius: 0;
+		
+		&:before {
+		  content: "";
+		  position: absolute;
+		  top: 0;
+		  left: -14px;
+		  width: 0;
+		  height: 0;
+		  border-style: solid;
+		  border-width: 0 14px 24px 0;
+		  border-color: transparent $blue transparent transparent;
+		}
+		
+		&:hover {
+		  .bar {
+			width: 36px;
+			
+			&:before {
+			  width: 36px;
+			}
+			
+			&:after {
+			  width: 40px;
+			}
+		  }
+		}
+	  }
+	  
+	  &.grey {
+		background-color: $light-grey;
+		margin-top: 40px;
+		border-top-right-radius: 0;
+		
+		&:before {
+		  content: "";
+		  position: absolute;
+		  top: 0;
+		  right: -14px;
+		  width: 0;
+		  height: 0;
+		  border-style: solid;
+		  width: 0;
+		  height: 0;
+		  border-style: solid;
+		  border-width: 24px 14px 0 0;
+		  border-color: $light-grey transparent transparent transparent;
+		}
+		
+		&:hover {
+		  .dot {
+			animation: wave 0.8s .4s ease-out infinite;
+		  }
+		  
+		  .dot-left {
+			animation: wave 0.8s .2s ease-out infinite;
+		  }
+		  
+		  .dot-right {
+			animation: wave 0.8s .6s ease-out infinite;
+		  }
+		}
+	  }
+	}
+
+	.bar {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  display: block;
+	  width: 40px;
+	  margin-left: -20px;
+	  margin-top: -3px;
+	  height: 6px;
+	  background-color: $white;
+	  transition: $slide;
+	  
+	  &:before {
+		content: "";
+		position: absolute;
+		display: block;
+		height: 100%;
+		width: 40px;
+		top: -12px;
+		background-color: $white;
+		transition: $slide;
+	  }
+	  
+	  &:after {
+		content: "";
+		position: absolute;
+		display: block;
+		height: 100%;
+		width: 30px;
+		bottom: -12px;
+		background-color: $white;
+		transition: $slide;
+	  }
+	}
+
+	.dot {
+	  display: block;
+	  background-color: $grey;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  width: 10px;
+	  height: 10px;
+	  margin-top: -5px;
+	  margin-left: -5px;
+	  border-radius: 100%;
+	  transition: $slide;
+	  
+	  &.dot-left {
+		content: "";
+		position: absolute;
+		display: block;
+		width: 10px;
+		height: 10px;
+		margin-left: -22px;
+		background-color: $grey;
+		border-radius: 100%;
+		transition: $slide;
+	  }
+	  
+	  &.dot-right {
+		position: absolute;
+		display: block;
+		width: 10px;
+		height: 10px;
+		margin-left: 12px;
+		background-color: $grey;
+		border-radius: 100%;
+		transition: $slide;
+	  }
+	}
+
+	@keyframes wave {
+	  0%    { transform: translateY(0); }
+	  50%    { transform: translateY(5px); }
+	  100%  { transform: translateY(0); }
+	}

@@ -181,7 +181,11 @@ export class Chat extends React.Component<ChatProps, {}> {
         let header: JSX.Element;
         if (state.format.options.showHeader) header =
             <div className="wc-header">
+				<div className="wc-custom-chat-btn"></div>
                 <span>{ state.format.strings.title }</span>
+				<div className="wc-custom-chat-fullScreen-btn"></div>
+				<div className="wc-custom-chat-minimise-btn"></div>
+				<div className="wc-custom-chat-close-btn"></div>
             </div>;
 
         let resize: JSX.Element;
@@ -190,7 +194,7 @@ export class Chat extends React.Component<ChatProps, {}> {
 
         return (
             <Provider store={ this.store }>
-                <div className="wc-chatview-panel" ref={ div => this.chatviewPanel = div }>
+                <div className="wc-chatview-panel" ref={ div => this.chatviewPanel = div }>				 
                     { header }
                     <MessagePane setFocus={ () => this.setFocus() }>
                         <History setFocus={ () => this.setFocus() }/>

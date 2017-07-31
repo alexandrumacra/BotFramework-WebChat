@@ -28,23 +28,12 @@ For ease of testing, several parameters can be set in the query string:
 	<link href="../../botchat.css" rel="stylesheet" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<style>
-		.wc-chatview-panel {
-			width: 320px;
-			height: 500px;
-			position: relative;
-		}
-        .h2{
-            font-family: Segoe UI;
-        }
-	</style>
 </head>
 
 <body>
-	<h2 style="font-family:Segoe UI;">Type a color into the WebChat!</h2>
-	<div id="BotChatGoesHere" class="wc-narrow"></div>
-	<button onclick="postButtonMessage()" style="width:120px;height:60px;padding:20px;margin-left:80px;margin-top:20px;">Click Me!</button>
-
+	
+	<div id="customBotChat" class="wc-narrow"></div>
+	
 	<script src="../../botchat.js"></script>
 	<script>
             var params = BotChat.queryParams(location.search);
@@ -72,7 +61,7 @@ For ease of testing, several parameters can be set in the query string:
                 botConnection: botConnection,
                 user: user,
                 bot: bot
-            }, document.getElementById("BotChatGoesHere"));
+            }, document.getElementById("customBotChat"));
 
             botConnection.activity$
                 .filter(activity => activity.type === "event" && activity.name === "changeBackground")
@@ -89,6 +78,52 @@ For ease of testing, several parameters can be set in the query string:
             }
 
         </script>
+		
+		
+		<h2>other chat icons - to use</h2>
+
+<div class="main-wrapper">
+  <div class="icons-wrapper">
+  <!-- message -->
+<i class="icon icon-chat blue">
+  <span class="bar"></span>
+</i>
+<!-- //message -->
+<!-- typing -->
+<i class="icon icon-chat grey">
+  <span class="dot dot-left"></span>
+  <span class="dot"></span>
+  <span class="dot dot-right"></span>
+</i>
+<!-- //typing -->
+</div>
+</div>
 </body>
 
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"/></script>
+
+<script>
+$(document).on("click", ".wc-chatview-panel .wc-custom-chat-minimise-btn", function (e) {
+    var $this = $(this);
+    if (!$this.parents(".wc-chatview-panel").hasClass("wc-chat_collapsed")) {
+        $this.parents(".wc-chatview-panel").addClass("wc-chat_collapsed");
+        $this.addClass("wc-custom-chat-minimise-btn-plus");
+    } else {
+        $this.parents(".wc-chatview-panel").removeClass('wc-chat_collapsed');
+        $this.removeClass("wc-custom-chat-minimise-btn-plus");
+    }
+});
+
+$(document).on("click", ".wc-chatview-panel .wc-custom-chat-fullScreen-btn", function (e) {
+    var $this = $(this);
+    if (!$this.parents(".wc-chatview-panel").hasClass("wc-chat_maximised")) {
+        $this.parents(".wc-chatview-panel").addClass("wc-chat_maximised");
+        $this.addClass("wc-custom-chat-fullScreen-active-btn");
+    } else {
+        $this.parents(".wc-chatview-panel").removeClass('wc-chat_maximised');
+        $this.removeClass("wc-custom-chat-fullScreen-active-btn");
+    }
+});
+
+</script>
 </html>
